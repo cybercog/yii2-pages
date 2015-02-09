@@ -1,0 +1,25 @@
+{
+  "name": "fonclub/pages",
+  "description": "Static pages module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "yii2-extension",
+  "keywords": ["pages","module"],
+  "authors": [
+    {
+      "name": "Fonclub",
+      "email": "fonclub@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "fonclub\\pages\\": ""
+    }
+  },
+  "extra": {
+    "bootstrap": "fonclub\\pages\\Bootstrap"
+  }
+}
