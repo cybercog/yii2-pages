@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * DefaultController implements the CRUD actions for pages model.
  */
-class DefaultController extends Controller
+class AdminController extends Controller
 {
     public function behaviors()
     {
@@ -32,7 +32,13 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $this->redirect('/');
+        $searchModel = new PagesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**

@@ -15,12 +15,22 @@ class Bootstrap implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        // Add module URL rules.
-        $app->urlManager->addRules(
-            [
-                '<_m:pages>' => '<_m>/default/index',
-            ],
-            false
-        );
+        $backend = strpos($app->controllerNamespace, 'backend') === false ? false : true;
+
+        if( $backend )
+            $app->urlManager->addRules(
+                [
+                    '<_m:pages>' => '<_m>/admin/index',
+                    '<_m:pages>/<_a>' => '<_m>/admin/<_a>',
+                ],
+                false
+            );
+        else
+            $app->urlManager->addRules(
+                [
+                    '<_m:pages>' => '<_m>/default/index',
+                ],
+                false
+            );
     }
 }
